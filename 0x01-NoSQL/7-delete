@@ -1,0 +1,5 @@
+try {
+   db.school.deleteMany( { "name" : "Holberton school" } );
+} catch (e) {
+   print (e);
+}
