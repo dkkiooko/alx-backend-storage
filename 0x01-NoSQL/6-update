@@ -1,3 +1,4 @@
+// add new attribute to a document in a specific collection
 db.school.update(
     { name: "Holberton school"},
     {$set: {
