@@ -17,6 +17,7 @@ def count_calls(method: Callable) -> Callable:
         return method(self, *args, **kwargs)
     return wrapper
 
+
 def call_history(method: Callable) -> Callable:
     """ store history of inputs and outputs for a function """
 
@@ -33,6 +34,7 @@ def call_history(method: Callable) -> Callable:
         return output
     return wrapper
 
+
 def replay(method: Callable) -> None:
     """ replays entire history of a function """
     name = method.__qualname__
@@ -42,7 +44,9 @@ def replay(method: Callable) -> None:
     inputs = cache.lrange(name + ":inputs", 0, -1)
     outputs = cache.lrange(name + ":outputs", 0, -1)
     for i, o in zip(inputs, outputs):
-        print("{}(*{}) -> {}".format(name, i.decode('utf-8'), o.decode('utf-8')))
+        print("{}(*{}) -> {}".
+              format(name, i.decode('utf-8'), o.decode('utf-8')))
+
 
 class Cache:
     """ Cache class"""
